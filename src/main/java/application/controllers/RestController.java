@@ -39,6 +39,7 @@ public class RestController
     {
         if (service.getRepositoryUser().getByLogin(userModel.getLogin()) != null)
         {
+            service.getRepositoryUser().delete(userModel.getLogin());
             return "DELETED_SUCCESSFULLY";
         }
         return "NO_USERS_WERE_FOUND_BY_THESE_CREDENTIALS";
