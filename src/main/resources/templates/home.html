@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Hibernate'">Title</title>
+</head>
+<body>
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar
+    {
+        display: none;
+    }
+    a
+    {
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        text-transform: uppercase;
+    }
+    a:hover
+    {
+        color: crimson;
+    }
+    ul
+    {
+        list-style: none;
+    }
+    li
+    {
+        display: inline;
+    }
+    .hero
+    {
+        width: 100vw;
+        min-height: 100vh;
+        height: fit-content;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .menu
+    {
+        width: 80%;
+        height: 50px;
+        border-bottom: 3px solid black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: row nowrap;
+    }
+    .users
+    {
+        width: 80%;
+        display: flex;
+        height: fit-content;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 30px;
+    }
+    .users > div
+    {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-flow: column nowrap;
+    }
+</style>
+<section class="hero">
+    <ul class="menu">
+        <li><a th:href="@{/application/create}">Create</a></li>
+        <li><a th:href="@{/application/read}">Read</a></li>
+        <li><a th:href="@{/application/update}">Update</a></li>
+        <li><a th:href="@{/application/delete}">Delete</a></li>
+    </ul>
+
+    <div th:if="${users.size() > 0}" th:each="userModel : ${users}" class="users">
+        <div>
+            <p th:text="${userModel.getId()}"></p>
+            <p th:text="${userModel.getLogin()}"></p>
+            <p th:text="${userModel.getPassword()}"></p>
+        </div>
+    </div>
+</section>
+</body>
+</html>
