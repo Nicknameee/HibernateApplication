@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="postRequestForm" th:action="@{/application/createPOST}" th:method="POST" th:object="${object}">
+    <input id="login" type="text" th:field="*{login}" placeholder="Login...">
+    <br>
+    <input id="password" type="text" th:field="*{password}" placeholder="Password...">
+    <br>
+    <input type="submit" value="Sign">
+</form>
+<!--AJAX response goes down below-->
+<div id="responseFromServer">
+</div>
+<script src="/scripts/RESTfulResponseGettersAJAX/create.js"></script>
+</body>
+</html>

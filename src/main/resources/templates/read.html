@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="readRequestForm" th:action="@{/application/readGET}" th:method="GET" th:object="${object}">
+  <input id="requestLoginValue" type="text" th:field="*{login}" placeholder="Login of existing record...">
+  <br>
+  <input type="submit" value="Sign">
+</form>
+<!--AJAX response goes down below-->
+<div id="responseFromServer">
+</div>
+<script src="/scripts/RESTfulResponseGettersAJAX/read.js"></script>
+</body>
+</html>
